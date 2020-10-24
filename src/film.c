@@ -42,7 +42,6 @@ void film_free_strings(struct film_struct *film)
 }
 
 
-
 int film_read(FILE *f, struct film_struct *film)
 {
     int rc = OK;
@@ -54,11 +53,11 @@ int film_read(FILE *f, struct film_struct *film)
     size_t len = 0;
     ssize_t read = 0;
 
-    if ((read = getline(&title, &len, f)) > 0)
+    if (((read = getline(&title, &len, f)) > 1) && (len > 1))
     {
 		title[strlen(title)-2] = '\0';
         len = 0;
-        if ((read = getline(&name, &len, f)) > 0)
+        if (((read = getline(&name, &len, f)) > 1) && (len > 1))
         {
 			name[strlen(name)-2] = '\0';
             if ((fscanf(f, "%d\n", &year) == 1) && (year >= MINYEAR) && (year <= MAXYEAR))
