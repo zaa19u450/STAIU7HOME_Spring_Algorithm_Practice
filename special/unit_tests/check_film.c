@@ -62,7 +62,7 @@ START_TEST(test_film_read_empty_title)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_empty_title.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_empty_title.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -77,7 +77,7 @@ START_TEST(test_film_read_empty_name)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_empty_name.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_empty_name.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -92,7 +92,7 @@ START_TEST(test_film_read_neg_year)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_neg_year.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_neg_year.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -107,7 +107,7 @@ START_TEST(test_film_read_big_year)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_bif_year.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_bif_year.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -122,7 +122,7 @@ START_TEST(test_film_read_float_year)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_float_year.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_float_year.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -137,7 +137,7 @@ START_TEST(test_film_read_letter_year)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_letter_year.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_letter_year.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -152,7 +152,7 @@ START_TEST(test_film_read_not_enough_info)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_not_enough_info.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_not_enough_info.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -167,7 +167,7 @@ START_TEST(test_film_read_one_letters)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_one_letters.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_one_letters.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
@@ -186,7 +186,7 @@ START_TEST(test_film_read_usual)
     struct film_struct film;
     memset(&film, 0, sizeof(struct film_struct));
     int rc;
-    FILE *f = fopen("unit_tests\\test_film_read_usual.txt", "r");
+    FILE *f = fopen("unit_tests/test_film_read_usual.txt", "r");
     if (f)
     {
         rc = film_read(f, &film);
