@@ -2,6 +2,7 @@
 #define FILM_H
 
 #include "main_header.h"
+#include "my_getdelim.h"
 
 struct film_struct
 {
