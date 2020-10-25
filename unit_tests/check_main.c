@@ -12,6 +12,14 @@ int main(void)
     srunner_add_suite(sr, film_cmp_year_suite());
     srunner_add_suite(sr, film_copy_suite());
 
+    srunner_add_suite(sr, my_getdelim_suite());
+
+    srunner_add_suite(sr, films_count_suite());
+    srunner_add_suite(sr, films_change_suite());
+    srunner_add_suite(sr, films_read_sort_suite());
+    srunner_add_suite(sr, films_search_suite());
+
+
     srunner_run_all(sr, CK_VERBOSE);
     no_failed = srunner_ntests_failed(sr);
 

@@ -400,8 +400,8 @@ END_TEST
 
 START_TEST(test_film_cmp_name_noteqlen_lsmaller)
 {
-    struct film_struct film_l = {"Abcd", "nameeeee", 1999};
-    struct film_struct film_r = {"fsf", "X name", 1997};
+    struct film_struct film_l = {"Abcd", "Nameeeee", 1999};
+    struct film_struct film_r = {"fsf", "Xname", 1997};
     int rc;
 
     rc = film_cmp_name(&film_l, &film_r);
@@ -528,4 +528,3 @@ Suite* film_copy_suite(void)
 
     return s;
 }
-
