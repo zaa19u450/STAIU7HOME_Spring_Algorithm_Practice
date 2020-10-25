@@ -11,7 +11,6 @@ START_TEST(test_my_getdelim_empty_first_n)
         rc = my_getdelim(&str, &n, '\n', f);
         ck_assert_int_eq(rc, ERRVALUE);
         ck_assert_int_eq((int) n, 0);
-        ck_assert_ptr_null(str);
         fclose(f);
     }
 }
@@ -34,7 +33,6 @@ START_TEST(test_my_getdelim_empty_mid_a)
             rc = my_getdelim(&str, &n, 'a', f);
             ck_assert_int_eq(rc, ERRVALUE);
             ck_assert_int_eq((int) n, 0);
-            ck_assert_ptr_null(str);
             fclose(f);
         }
     }
@@ -52,7 +50,6 @@ START_TEST(test_my_getdelim_1symb)
         rc = my_getdelim(&str, &n, '\n', f);
         ck_assert_int_eq(rc, OK);
         ck_assert_int_eq((int) n, 1);
-        ck_assert_ptr_nonnull(str);
         ck_assert_int_eq(strcmp(str, "1"), 0);
         free(str);
         fclose(f);
@@ -71,7 +68,6 @@ START_TEST(test_my_getdelim_10usual_dot)
         rc = my_getdelim(&str, &n, '.', f);
         ck_assert_int_eq(rc, OK);
         ck_assert_int_eq((int) n, 10);
-        ck_assert_ptr_nonnull(str);
         ck_assert_int_eq(strcmp(str, "1234567890"), 0);
         free(str);
         fclose(f);
