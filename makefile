@@ -18,10 +18,10 @@ release : CFLAGS += -DNDEBUG -g0
 release : app.exe
 
 # Общие объектные файлы
-OBJS := $(OUTPATH)film.o $(OUTPATH)film_array.o
+OBJS := $(OUTPATH)film.o $(OUTPATH)film_array.o $(OUTPATH)my_getdelim.o
 
 # Объектные файлы, нужные только в модульном тестировании
-OBJSUNIT := $(OUTPATH)check_film.o
+OBJSUNIT := $(OUTPATH)check_film.o $(OUTPATH)check_film_array.o $(OUTPATH)check_my_getdelim.o
 #$(OUTPATH)check_film_array.o
 
 #сборка основной программы
@@ -33,8 +33,6 @@ unit_tests.exe : $(OBJS) $(OBJSUNIT) $(OUTPATH)check_main.o
 	$(CC) $^ -o $@ -lcheck
 
 #компоновка тестирующих модулей
-#$(OUTPATH)check_%.o : $(UNIPATH)check_%.c
-#	cd out && $(CC) $(CFLAGS) -I ../mingw64/include/lzma $(INC) -c ../$<
 $(OUTPATH)check_%.o : $(UNIPATH)check_%.c
 	cd out && $(CC) $(CFLAGS) $(INC) -c ../$<
 	
