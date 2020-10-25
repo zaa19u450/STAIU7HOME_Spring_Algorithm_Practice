@@ -37,8 +37,6 @@ START_TEST(test_film_free_strings_usual)
     if (rc == OK)
     {
         film_free_strings(&film);
-        ck_assert_ptr_null(film.title);
-        ck_assert_ptr_null(film.name);
     }
 }
 END_TEST
