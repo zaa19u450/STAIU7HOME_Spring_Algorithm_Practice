@@ -16,5 +16,6 @@
 #define ERRNOTFOUND -6
 #define ERRMEM -7
 #define ERRFILE -8
+#define END -9
 
 #endif // MAIN_HEADER_H
