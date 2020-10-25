@@ -4,7 +4,7 @@ START_TEST(test_films_count_empty)
 {
     int rc = OK;
     int n = 0;
-    FILE *f = fopen("unit_tests\\test_films_count_empty.txt", "r");
+    FILE *f = fopen("unit_tests/test_films_count_empty.txt", "r");
     if (f)
     {
         rc = films_count(f, &n);
@@ -19,7 +19,7 @@ START_TEST(test_films_count_with_error_in2)
 {
     int rc = OK;
     int n = 0;
-    FILE *f = fopen("unit_tests\\test_films_count_with_error_in2.txt", "r");
+    FILE *f = fopen("unit_tests/test_films_count_with_error_in2.txt", "r");
     if (f)
     {
         rc = films_count(f, &n);
@@ -34,7 +34,7 @@ START_TEST(test_films_count_usual3)
 {
     int rc = OK;
     int n = 0;
-    FILE *f = fopen("unit_tests\\test_films_count_usual3.txt", "r");
+    FILE *f = fopen("unit_tests/test_films_count_usual3.txt", "r");
     if (f)
     {
         rc = films_count(f, &n);
@@ -112,7 +112,7 @@ START_TEST(test_films_read_sort_title_stb)
     int n = 4;
     struct film_struct *films = NULL;
     struct film_struct *film_to_delete = NULL;
-    FILE *f = fopen("unit_tests\\test_films_read_sort_title_stb.txt", "r");
+    FILE *f = fopen("unit_tests/test_films_read_sort_title_stb.txt", "r");
     if (f)
     {
         films = calloc(n, sizeof(struct film_struct));
@@ -151,7 +151,7 @@ START_TEST(test_films_read_sort_name_one_film)
     int n = 1;
     struct film_struct *films = NULL;
     struct film_struct *film_to_delete = NULL;
-    FILE *f = fopen("unit_tests\\test_films_read_sort_name_one_film.txt", "r");
+    FILE *f = fopen("unit_tests/test_films_read_sort_name_one_film.txt", "r");
     if (f)
     {
         films = calloc(n, sizeof(struct film_struct));
@@ -178,7 +178,7 @@ START_TEST(test_films_read_sort_year_sorted)
     int n = 4;
     struct film_struct *films = NULL;
     struct film_struct *film_to_delete = NULL;
-    FILE *f = fopen("unit_tests\\test_films_read_sort_year_sorted.txt", "r");
+    FILE *f = fopen("unit_tests/test_films_read_sort_year_sorted.txt", "r");
     if (f)
     {
         films = calloc(n, sizeof(struct film_struct));
