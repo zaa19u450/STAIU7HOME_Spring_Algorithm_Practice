@@ -5,7 +5,7 @@ START_TEST(test_my_getdelim_empty_first_n)
     char *str = NULL;
     size_t n = 0;
     int rc;
-    FILE *f = fopen("unit_tests\\test_my_getdelim_empty_first_n.txt", "r");
+    FILE *f = fopen("unit_tests/test_my_getdelim_empty_first_n.txt", "r");
     if (f)
     {
         rc = my_getdelim(&str, &n, '\n', f);
@@ -22,7 +22,7 @@ START_TEST(test_my_getdelim_empty_mid_a)
     char *str = NULL;
     size_t n = 0;
     int rc;
-    FILE *f = fopen("unit_tests\\test_my_getdelim_empty_mid_a.txt", "r");
+    FILE *f = fopen("unit_tests/test_my_getdelim_empty_mid_a.txt", "r");
     if (f)
     {
         if (my_getdelim(&str, &n, 'a', f) == OK)
@@ -46,7 +46,7 @@ START_TEST(test_my_getdelim_1symb)
     char *str = NULL;
     size_t n = 0;
     int rc;
-    FILE *f = fopen("unit_tests\\test_my_getdelim_1symb.txt", "r");
+    FILE *f = fopen("unit_tests/test_my_getdelim_1symb.txt", "r");
     if (f)
     {
         rc = my_getdelim(&str, &n, '\n', f);
@@ -65,7 +65,7 @@ START_TEST(test_my_getdelim_10usual_dot)
     char *str = NULL;
     size_t n = 0;
     int rc;
-    FILE *f = fopen("unit_tests\\test_my_getdelim_10usual_dot.txt", "r");
+    FILE *f = fopen("unit_tests/test_my_getdelim_10usual_dot.txt", "r");
     if (f)
     {
         rc = my_getdelim(&str, &n, '.', f);
