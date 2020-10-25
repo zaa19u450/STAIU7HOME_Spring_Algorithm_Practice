@@ -13,7 +13,7 @@ int film_create(struct film_struct *film, const char *title, const char *name, i
         name_temp = calloc(strlen(name) + 1, sizeof(char));
         if (name_temp != NULL)
         {
-			name_temp = strcpy(name_temp, name);
+            name_temp = strcpy(name_temp, name);
             free(film->title);
             free(film->name);
 
@@ -51,28 +51,19 @@ int film_read(FILE *f, struct film_struct *film)
     int year = 0;
 
     size_t len = 0;
-    ssize_t read = 0;
 
-    if (((read = getline(&title, &len, f)) > 1) && (len > 1))
+    if ((rc = my_getdelim(&title, &len, '\n', f)) == OK)
     {
-		title[strlen(title)-2] = '\0';
-        len = 0;
-        if (((read = getline(&name, &len, f)) > 1) && (len > 1))
+        if ((rc = my_getdelim(&name, &len, '\n', f)) == OK)
         {
-			name[strlen(name)-2] = '\0';
-            if ((fscanf(f, "%d\n", &year) == 1) && (year >= MINYEAR) && (year <= MAXYEAR))
+            if ((fscanf(f, "%d", &year) == 1) && (fgetc(f) == '\n') && (year >= MINYEAR) && (year <= MAXYEAR))
             {
                 rc = film_create(film, title, name, year);
             }
             else
                 rc = ERRVALUE;
         }
-        else
-            rc = ERRVALUE;
-
     }
-    else
-        rc = ERRVALUE;
 
     free(title);
     free(name);

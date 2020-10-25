@@ -1,6 +1,7 @@
 #include "main_header.h"
 #include "film.h"
 #include "film_array.h"
+#include "my_getdelim.h"
 
 int main(int argc, char **argv)
 {
@@ -9,13 +10,15 @@ int main(int argc, char **argv)
     FILE *f = NULL;
     int n = 0;
     struct film_struct *films = NULL;
-	struct film_struct *films_to_delete;
+    struct film_struct *films_to_delete;
     struct film_struct goal;
     memset(&goal, 0, sizeof(struct film_struct));
     int index = 0;
 
     if ((argc < 3) || (argc > 4) || (strcmp(argv[2], "title") && strcmp(argv[2], "year")
-                       && strcmp(argv[2], "name")))
+                       && strcmp(argv[2], "name")) || 
+				   ((argc == 4) && (!strcmp(argv[2], "year")) && (((atoi(argv[3]) == 0) && (argv[3][0] != '0'))
+                                        || (atoi(argv[3]) < MINYEAR) || (atoi(argv[3]) > MAXYEAR))))
         rc = ERRPARAM;
     else
     {
@@ -28,7 +31,7 @@ int main(int argc, char **argv)
                 films = calloc(n, sizeof(struct film_struct));
                 if (films)
                 {
-					films_to_delete = films;
+                    films_to_delete = films;
                     rewind(f);
                     /////////////////////
                     if (!strcmp(argv[2], "title"))

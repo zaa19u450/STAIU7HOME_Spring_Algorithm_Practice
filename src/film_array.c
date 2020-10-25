@@ -7,7 +7,7 @@ int films_count(FILE *f, int *n)
     memset(&film, 0, sizeof(struct film_struct));
     *n = 0;
 
-    while ((rc == OK) && (!feof(f)))
+    while ((!feof(f)) && (rc == OK))
     {
         rc = film_read(f, &film);
         if (rc == OK)
@@ -26,11 +26,11 @@ int films_change(struct film_struct *film1, struct film_struct *film2)
     struct film_struct film_temp;
     memset(&film_temp, 0, sizeof(struct film_struct));
     if (film_copy(&film_temp, film1) || film_copy(film1, film2) || film_copy(film2, &film_temp))
-	{
+    {
         return ERRMEM;
-	}
-	
-	film_free_strings(&film_temp);
+    }
+
+    film_free_strings(&film_temp);
     return OK;
 }
 
@@ -75,9 +75,10 @@ int films_search(struct film_struct *films, int n, struct film_struct *goal,
 void films_free(struct film_struct *films, int n)
 {
     for (int i = 0; i < n; i++)
-	{
-		if ((films + i))
-			film_free_strings((films + i));
-	}
+    {
+        if ((films + i))
+            film_free_strings((films + i));
+    }
     free(films);
 }
+
