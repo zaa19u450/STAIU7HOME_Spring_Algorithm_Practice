@@ -17,11 +17,11 @@ int main(int argc, char **argv)
 
     if ((argc < 3) || (argc > 4) || (strcmp(argv[2], "title") && strcmp(argv[2], "year")
                        && strcmp(argv[2], "name")))
-	{
+    {
         rc = ERRPARAM;
-	}
+    }
     else if ((argc == 4) && !strcmp(argv[2], "year"))
-	{
+    {
 		int year = atoi(argv[3]);
 		if (((year == 0) && (argv[3][0] != '0')) ||
 			(year < MINYEAR) || (year > MAXYEAR))
