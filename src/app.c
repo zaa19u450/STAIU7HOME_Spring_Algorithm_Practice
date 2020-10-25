@@ -25,10 +25,8 @@ int main(int argc, char **argv)
 		int year = atoi(argv[3]);
 		if (((year == 0) && (argv[3][0] != '0')) ||
 			(year < MINYEAR) || (year > MAXYEAR))
-		{
-			rc = ERRPARAM;
-		}
-	}
+		rc = ERRPARAM;
+    }
 
     if (rc == OK)
     {
