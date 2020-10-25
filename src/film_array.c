@@ -18,6 +18,10 @@ int films_count(FILE *f, int *n)
     }
     if ((*n) == 0)
         rc = ERREMPTY;
+    else if (rc == END)
+    {
+        rc = OK;
+    }
     return rc;
 }
 
@@ -81,4 +85,3 @@ void films_free(struct film_struct *films, int n)
     }
     free(films);
 }
-

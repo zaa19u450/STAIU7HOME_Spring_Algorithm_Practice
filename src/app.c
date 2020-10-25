@@ -16,11 +16,21 @@ int main(int argc, char **argv)
     int index = 0;
 
     if ((argc < 3) || (argc > 4) || (strcmp(argv[2], "title") && strcmp(argv[2], "year")
-                       && strcmp(argv[2], "name")) || 
-				   ((argc == 4) && (!strcmp(argv[2], "year")) && (((atoi(argv[3]) == 0) && (argv[3][0] != '0'))
-                                        || (atoi(argv[3]) < MINYEAR) || (atoi(argv[3]) > MAXYEAR))))
+                       && strcmp(argv[2], "name")))
+	{
         rc = ERRPARAM;
-    else
+	}
+    else if ((argc == 4) && !strcmp(argv[2], "year"))
+	{
+		int year = atoi(argv[3]);
+		if (((year == 0) && (argv[3][0] != '0')) ||
+			(year < MINYEAR) || (year > MAXYEAR))
+		{
+			rc = ERRPARAM;
+		}
+	}
+
+    if (rc == OK)
     {
         f = fopen(argv[1], "r");
         if (f)
@@ -33,7 +43,6 @@ int main(int argc, char **argv)
                 {
                     films_to_delete = films;
                     rewind(f);
-                    /////////////////////
                     if (!strcmp(argv[2], "title"))
                     {
                         rc = films_read_sort(f, films, n, film_cmp_title);
@@ -96,7 +105,6 @@ int main(int argc, char **argv)
                             }
                         }
                     }
-                    /////////////////////////////////////////////
                     films_free(films_to_delete, n);
                 }
                 else

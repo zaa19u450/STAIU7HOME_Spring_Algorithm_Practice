@@ -6,19 +6,18 @@ int my_getdelim(char **lineptr, size_t *n, int delim, FILE *stream)
     int rc = OK;
     long int go_back;
     go_back = ftell(stream);
-	
-	if (go_back == SEEK_END)
-		return ERRVALUE;
+
+    if (go_back == SEEK_END)
+        return END;
 
     if (go_back == -1L)
         return ERRFILE;
 
     size_t len = 0;
     while (((c = fgetc(stream)) != delim) && (c != EOF))
-	{
-		//printf("!%c!", c);
+    {
         len++;
-	}
+    }
     if (len)
     {
         *lineptr = calloc(len + 1, sizeof(char));
@@ -42,7 +41,12 @@ int my_getdelim(char **lineptr, size_t *n, int delim, FILE *stream)
             rc = ERRMEM;
     }
     else
-        rc = ERRVALUE;
+    {
+        if (feof(stream))
+            rc = END;
+        else
+            rc = ERRVALUE;
+    }
     *n = len;
     return rc;
 }
